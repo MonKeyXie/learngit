@@ -60,3 +60,21 @@ Git比其他版本控制系统设计得优秀，因为Git跟踪并管理的是修改，而非文件。
 $ git checkout -- test.txt
 git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。
 
+添加远程库：
+Create a new repo”按钮，创建一个新的仓库。
+Repository name填入learngit，其他保持默认设置，点击“Create repository”按钮，就成功地创建了一个新的Git仓库
+在本地的learngit仓库下运行命令：
+$ git remote add origin git@github.com:MonKeyXie/learngit.git
+添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。
+
+推送当前分支：
+由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
+$ git push -u origin master	第一次推送
+$ git push origin master	往后推送
+
+clone远程库：
+创建一个新的仓库，名字叫gitskills，我们勾选Initialize this repository with a README，这样GitHub会自动为我们创建一个README.md文件。
+接下来用命令git clone克隆一个本地库：
+$ git clone git@github.com:MonKeyXie/gitskills.git
+还可以用https://github.com/MonKeyXie/gitskills.git这样的地址。实际上，Git支持多种协议，默认的git://使用ssh，但也可以使用https等其他协议。
+
